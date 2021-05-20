@@ -4,7 +4,7 @@ import List from "./components/List";
 import Pay from "./components/Pay";
 import Button from "./components/main/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
-import navbar from "./pics/pic1.jpg"
+import navbar from "./pics/pic1.jpg";
 
 class App extends React.Component {
   constructor(props) {
@@ -18,12 +18,10 @@ class App extends React.Component {
   }
 
   onClick(value) {
-    // console.log("App#onClick value", value);
     this.setState({ activeTab: value });
   }
 
   onAdd(price, input) {
-    // console.log("App#onAdd", price, input);
     let items = this.state.items;
     items.push({ input, price });
     this.setState({
@@ -34,18 +32,20 @@ class App extends React.Component {
 
   render() {
     const { activeTab, items } = this.state;
-    // console.log("activeTab", activeTab);
-    // console.log("this.renderTabAdd", this.renderTabAdd);
-    // console.log("this.renderTabList", this.renderTabList);
-    // console.log("this.renderTabPay", this.renderTabPay);
+
     return (
       <div style={{ backgroundColor: "#d12839", height: "1000px" }}>
         <div className="text-center" style={{ display: "grid", width: "100%" }}>
-        <div style={{background: `url(${navbar})`, height:"170px", borderRadius: "0 0 85% 85% / 30%"}}></div>
-         
-        <h1
+          <div
             style={{
-              
+              background: `url(${navbar})`,
+              height: "170px",
+              borderRadius: "0 0 85% 85% / 30%",
+            }}
+          ></div>
+
+          <h1
+            style={{
               fontFamily: "Niconne",
               fontSize: "11vmax",
               color: "#fdead4",
@@ -58,7 +58,6 @@ class App extends React.Component {
           </h1>
           <div className="d-flex justify-content-center offset-3 col-6">
             <Button
-          
               isSelected={activeTab === "add"}
               onClick={(e) => this.onClick("add")}
             >
@@ -88,8 +87,6 @@ class App extends React.Component {
         </div>
 
         {/* <div style={{ backgroundColor: "#d12839",height:"200px", width: "100%", }} /> */}
-
-      
       </div>
     );
   }

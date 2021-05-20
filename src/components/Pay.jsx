@@ -21,44 +21,48 @@ class Pay extends React.Component {
 
     let subTotal = this.state.subTotal + price;
     this.setState({ subTotal });
-    console.log("subTotal ", subTotal);
+    // console.log("subTotal ", subTotal);
 
     let totalEcoTax = this.state.totalEcoTax + basket.length * 0.03;
     this.setState({ totalEcoTax });
-    console.log("totalEcoTax ", totalEcoTax);
+    // console.log("totalEcoTax ", totalEcoTax);
 
     let totalVat = this.state.totalVat + subTotal * 0.2;
     this.setState({ totalVat });
-    console.log("totalVat ", totalVat);
+    // console.log("totalVat ", totalVat);
 
     let total = subTotal + totalEcoTax + totalVat;
     total.toFixed(2);
-    console.log("total ", total);
+    // console.log("total ", total);
     this.setState({ total });
   }
 
   render() {
     const { basket, subTotal, total, totalVat, totalEcoTax } = this.state;
     const { list } = this.props;
-    console.log("Pay#render list", list);
-    return (
-      <div className="px-0 mt-3 bg-white m-0 fs-4  " style={{height:"500px"}}>
 
+    return (
+      <div
+        className="px-0 mt-3 bg-white m-0 fs-4  "
+        style={{ height: "500px" }}
+      >
         <div className="mt-3 ">
-          <div >
-            <div  className="d-flex px-2" >
+          <div>
+            <div className="d-flex px-2">
               {basket.map((el, key) => {
                 console.log("item", el);
                 return (
                   <>
-                    <p className=" px-2" key={key}>{el}</p>
+                    <p className=" px-2" key={key}>
+                      {el}
+                    </p>
                   </>
                 );
               })}
             </div>
           </div>
 
-          <div style={{float:"right"}}>
+          <div style={{ float: "right" }}>
             <p className="list-group-item d-flex justify-content-end border-0 pt-0">
               Sub Total : {subTotal} €
             </p>
@@ -74,7 +78,6 @@ class Pay extends React.Component {
           </div>
         </div>
         {list.map((item, key) => {
-          console.log("item", item);
           return (
             <>
               <Card item={item} onClickProduct={this.onClickProduct} />

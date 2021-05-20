@@ -12,12 +12,9 @@ class Card extends React.Component {
     }
 
     componentDidMount() {
-        // console.log('Card#componentDidMount this.props.item', this.props.item);
        
         let url = 'https://raw.githubusercontent.com/konexio/digitous-assest/main/bakery/' + this.props.item.input + '.png'
-        // console.log("url",url);
 
-        
         if (this.props.item.input === 'coffee' || this.props.item.input === 'cake' || this.props.item.input === 'cookie' || this.props.item.input === 'croissant'){  
             var request = {method: 'GET'}         
             fetch(url, request)
@@ -30,9 +27,7 @@ class Card extends React.Component {
         }
     
         else {
-            // this.setState({ source: specimen })
         }
-        console.log('Card#componentDidMount source', this.state.source)
     }
 
     onClick() {
@@ -40,18 +35,13 @@ class Card extends React.Component {
     }
 
     render(){
-        const { item } = this.props;
-        const { source } = this.state;
-
-        // console.log('Card#render item', item)
-      
+       
         return(
             <>
-            
                 <Button 
                     className="btn_picture"
                     onClick={this.onClick}>
-                    <img  src={this.state.source} alt="picture"/>
+                    <img  src={this.state.source} alt="product"/>
                    
                 </Button>
             </>
