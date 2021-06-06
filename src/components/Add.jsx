@@ -35,7 +35,7 @@ class Add extends React.Component {
           <input
             type="text"
             className="form-control"
-            placeholder="Item"
+            placeholder="Items: cake, coffee, croissant"
             aria-label="Item"
             aria-describedby="Add Item"
             onChange={(e) => this.onChange("input", e.target.value)}
